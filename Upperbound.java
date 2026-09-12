@@ -35,4 +35,3 @@ public class Upperbound {
         System.out.println("Upper Bound value: " + arr[result]);
     }
 }
-
