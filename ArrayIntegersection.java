@@ -1,0 +1,39 @@
+package Demo;
+
+import java.util.*;
+
+public class ArrayIntegersection {
+
+    public static List<Integer> intersection(int[] a, int[] b) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Count elements in array a
+        for (int num : a) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        List<Integer> result = new ArrayList<>();
+
+        // Find common elements
+        for (int num : b) {
+
+            if (map.getOrDefault(num, 0) > 0) {
+
+                result.add(num);
+
+                map.put(num, map.get(num) - 1);
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int[] a = {1, 2, 2, 3, 4};
+        int[] b = {2, 2, 4, 5};
+
+        System.out.println(intersection(a, b));
+    }
+}
